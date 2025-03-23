@@ -64,7 +64,7 @@ def get_arm_information(arm:devil_arm)->dict[str,list[str]]:
     intrested_columns=['Type','User','Form','Appearances']
 
     for col in intrested_columns:
-        data[col]=[]
+        data[col]=None
 
     for head in head_sections:
         chck=head.find('h2')
@@ -90,6 +90,10 @@ def get_arm_information(arm:devil_arm)->dict[str,list[str]]:
                         if (len(lines)==1):
                             lines=lines[0].split(',')
                         #print(lines)
+                    if len(lines)==1:
+                        lines=lines[0]
+                    elif len(lines)==0:
+                        lines=None
                     data[div_name.text]=lines
     #print(data)
 
