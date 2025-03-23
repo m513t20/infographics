@@ -105,7 +105,7 @@ def get_information_all(arms:list[devil_arm])->dict[str,dict[str,list[str]]]:
 
 def save(data:dict[str,dict[str,list[str]]]):
     with open('devil_arms.json','w') as out:
-        out.write(json.dumps(str(data)))
+        json.dump(data,out)
 
 def main():
     arms=get_arms()
