@@ -90,10 +90,16 @@ def get_arm_information(arm:devil_arm)->dict[str,list[str]]:
                         if (len(lines)==1):
                             lines=lines[0].split(',')
                         #print(lines)
+
                     if len(lines)==1:
-                        lines=lines[0]
+                        lines=lines[0].replace('<i>','')
+                        lines=lines.replace('</i>','')
                     elif len(lines)==0:
                         lines=None
+                    else:
+                        for i,line in enumerate(lines):
+                            lines[i]=lines[i].replace('<i>','')
+                            lines[i]=lines[i].replace('</i>','')
                     data[div_name.text]=lines
     #print(data)
 
