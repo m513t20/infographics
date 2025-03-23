@@ -59,7 +59,7 @@ def get_arm_information(arm:devil_arm)->dict[str,list[str]]:
     #print(head_sections[0])
 
     data = {}
-
+    data['name']=arm.name
     intrested_headers=['Weapon information','Real-life information']
     intrested_columns=['Type','User','Form','Appearances']
 
@@ -96,11 +96,11 @@ def get_arm_information(arm:devil_arm)->dict[str,list[str]]:
     return data
 
 def get_information_all(arms:list[devil_arm])->dict[str,dict[str,list[str]]]:
-    data={}
+    data=[]
     for arm  in arms:
         
-        data[arm.name]=get_arm_information(arm)
-        print(arm.name,data[arm.name])
+        data.append(get_arm_information(arm))
+        print(arm.name,data[-1])
     return data
 
 def save(data:dict[str,dict[str,list[str]]]):
