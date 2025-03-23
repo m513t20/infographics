@@ -126,4 +126,3 @@ def main():
     return data
 
 
-main()
